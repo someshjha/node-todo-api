@@ -41,13 +41,13 @@ MongoClient.connect('mongodb://localhost:27017/TodoApp', (err, db) => {
     //     console.log('Unable to delete docs', err);
     // });
 
-    db.collection('Users').findOneAndDelete({
-        _id: new ObjectID('5977c43167b5d1aa8becf63e')
-    }).then((res) => {
-        console.log(res);
-    }, (err) => {
-        console.log(err);
-    });
+    // db.collection('Users').findOneAndDelete({
+    //     _id: new ObjectID('5977c43167b5d1aa8becf63e')
+    // }).then((res) => {
+    //     console.log(res);
+    // }, (err) => {
+    //     console.log(err);
+    // });
 
     //db.close();
     
