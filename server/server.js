@@ -17,7 +17,6 @@ const port = process.env.PORT || 3000;
 app.use(bodyParser.json());
 
 app.post('/todo', (req, res) => {
-    console.log(req.body);
     var todo = new Todo({
         text: req.body.text
     });
@@ -60,7 +59,6 @@ app.get('/todos/:id', (req, res) => {
 
 app.delete('/todos/:id', (req, res) => {
     var {id} = req.params;
-    console.log(id);
     if(!ObjectId.isValid(id)){
         return res.status(400).send({error: `Id: ${id} is not valid`});
     }
@@ -114,7 +112,7 @@ app.post('/user', (req, res) => {
     user.save().then(() => {
         return user.generateAuthToken();
     }).then((token) => {
-        res.header('x-auth', token).send(user);
+        res.status(201).header('x-auth', token).send(user);
     }).catch((e) => {
         res.status(400).send(e);
     });

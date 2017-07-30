@@ -60,9 +60,6 @@ UserSchema.statics.findByToken = function(token) {
     try{
         decoded = jwt.verify(token, 'abc123');
     } catch(e) {
-        // return new Promise((resolve, reject) => {
-        //     reject();
-        // });
         return Promise.reject({error: 'User unauthorized'});
     }
     
@@ -80,7 +77,6 @@ UserSchema.pre('save', function(next) {
     if(user.isModified('password')) {
         bcrypt.genSalt(10, (err, salt) => {
             bcrypt.hash(user.password, salt, (err, hash) => {
-                console.log(hash);
                 user.password = hash ;
                 next();
             });

@@ -6,9 +6,10 @@ const {User} = require('./../../models/user');
 
 const userOneId = new ObjectID();
 const userTwoId = new ObjectID();
+
 const users = [{
   _id: userOneId,
-  email: 'andrew@example.com',
+  email: 'somesh@example.com',
   password: 'userOnePass',
   tokens: [{
     access: 'auth',
@@ -16,7 +17,7 @@ const users = [{
   }]
 }, {
   _id: userTwoId,
-  email: 'jen@example.com',
+  email: 'suga@example.com',
   password: 'userTwoPass'
 }];
 
